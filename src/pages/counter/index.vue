@@ -19,10 +19,16 @@ export default {
       count: state => state.counter.count
     })
   },
+  mounted () {
+    this.getProvince().then(res => {
+      console.log(res)
+    })
+  },
   methods: {
     ...mapActions('counter', [
       'increment',
-      'decrement'
+      'decrement',
+      'getProvince'
     ])
   }
 }

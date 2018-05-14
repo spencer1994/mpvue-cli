@@ -3,18 +3,28 @@ const state = {
 }
 
 const mutations = {
-  increment: (state) => {
+  INCREMENT: (state) => {
     const obj = state
     obj.count += 1
   },
-  decrement: (state) => {
+  DECREMENT: (state) => {
     const obj = state
     obj.count -= 1
+  }
+}
+
+const actions = {
+  increment ({commit}) {
+    commit('INCREMENT')
+  },
+  decrement ({commit}) {
+    commit('DECREMENT')
   }
 }
 
 export default {
   namespaced: true,
   state,
-  mutations
+  mutations,
+  actions
 }

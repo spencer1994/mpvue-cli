@@ -12,19 +12,18 @@
 
 <script>
 // Use Vuex
+import { mapState, mapActions } from 'vuex'
 export default {
   computed: {
-    count () {
-      return this.$store.state.counter.count
-    }
+    ...mapState({
+      count: state => state.counter.count
+    })
   },
   methods: {
-    increment () {
-      this.$store.commit('counter/increment')
-    },
-    decrement () {
-      this.$store.commit('counter/decrement')
-    }
+    ...mapActions('counter', [
+      'increment',
+      'decrement'
+    ])
   }
 }
 

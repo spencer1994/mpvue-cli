@@ -1,3 +1,4 @@
+import Vue from 'vue'
 const state = {
   count: 0
 }
@@ -19,6 +20,9 @@ const actions = {
   },
   decrement ({commit}) {
     commit('DECREMENT')
+  },
+  getProvince ({commit}, params = {}) {
+    return Vue.iBox.http('globalUrl.getProvince', params)({method: 'get'})
   }
 }
 

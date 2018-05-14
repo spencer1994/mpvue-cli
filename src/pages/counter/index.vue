@@ -6,7 +6,7 @@
       <button @click="decrement">-</button>
     </p>
 
-    <a href="/pages/index/main" class="home">去往首页</a>
+    <a href="/pages/index/index" class="home">去往首页</a>
   </div>
 </template>
 
@@ -19,10 +19,16 @@ export default {
       count: state => state.counter.count
     })
   },
+  mounted () {
+    this.getProvince().then(res => {
+      console.log(res)
+    })
+  },
   methods: {
     ...mapActions('counter', [
       'increment',
-      'decrement'
+      'decrement',
+      'getProvince'
     ])
   }
 }

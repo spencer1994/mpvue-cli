@@ -1,11 +1,5 @@
 module.exports = [
   {
-    path: '/pages/counter/index',
-    config: {
-      navigationBarTitleText: 'vuex例子'
-    }
-  },
-  {
     path: '/pages/index/index',
     config: {
       navigationBarTitleText: '首页'
@@ -18,3 +12,4 @@ module.exports = [
     }
   }
 ]
+

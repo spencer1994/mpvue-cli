@@ -5,6 +5,7 @@
 > 1. 使用了[mpvue-entry](https://github.com/F-loat/mpvue-entry)
 
 优点：去除了各个子页面的main.js，创建了router文件夹，使开发更贴近vue风格。
+
 缺陷：每新增一个页面都需要重新npm run dev，[官方文档](http://mpvue.com/qa/#_2)有说明原因。
 
 > 2. 自动注册store

@@ -20,7 +20,9 @@ export default {
     })
   },
   mounted () {
-    this.getProvince().then(res => {
+    this.getProvince({
+      testParams: '1'
+    }).then(res => {
       console.log(res)
     })
   },

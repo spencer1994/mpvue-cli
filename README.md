@@ -12,7 +12,9 @@
 
 优点：多人协作开发不需要担心代码冲突，不需要每个store.js都要import引入。
 
-> 3. 使用[flyio](https://wendux.github.io/dist/#/doc/flyio-en/readme)并封装了请求，具体用法可在代码里查看。
+> 3. 使用[flyio](https://wendux.github.io/dist/#/doc/flyio-en/readme)并封装了请求，
+
+优点：根据[vuex官方推荐](https://vuex.vuejs.org/zh-cn/intro.html)，将background API封装到actions中，具体用法可在代码里查看。
 
 以下使关于第二点的说明：
 # 根据webpack的require.context及store的registerModule方法来自动注册store的modules

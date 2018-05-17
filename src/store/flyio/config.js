@@ -32,7 +32,7 @@ export default {
     // 异常默认提示的方法
     tipShow: (err) => {
       wx.showToast({
-        title: err.message || '服务器升级中，请稍后重试。',
+        title: (err && err.message) || '服务器升级中，请稍后重试。',
         icon: 'none',
         mask: true
       })

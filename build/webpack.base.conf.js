@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var MpvuePlugin = require('webpack-mpvue-asset-plugin')
 const MpvueEntry = require('mpvue-entry')
 
 function resolve (dir) {
@@ -83,6 +84,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new MpvueEntry()
+    new MpvueEntry(),
+    new MpvuePlugin()
   ]
 }

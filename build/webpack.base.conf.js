@@ -2,20 +2,14 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var MpvuePlugin = require('webpack-mpvue-asset-plugin')
-const getEntry = require('mpvue-entry')
+const MpvueEntry = require('mpvue-entry')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  // 如果要自定义生成的 dist 目录里面的文件路径，
-  // 可以将 entry 写成 {'toPath': 'fromPath'} 的形式，
-  // toPath 为相对于 dist 的路径, 例：index/demo，则生成的文件地址为 dist/index/demo.js
-  entry: getEntry('./src/router/index.js', {
-    cache: false
-  }),
+  entry: MpvueEntry.getEntry('./src/router/index.js'),
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
@@ -51,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        include: [resolve('src'), /mpvue-entry/],
+        include: [resolve('src')],
         use: [
           'babel-loader',
           {
@@ -89,6 +83,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new MpvuePlugin()
+    new MpvueEntry()
   ]
 }

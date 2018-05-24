@@ -6,7 +6,9 @@
 
 优点：去除了各个子页面的main.js，创建了router文件夹，使开发更贴近vue风格。
 
-缺陷：每新增一个页面都需要重新npm run dev，[官方文档](http://mpvue.com/qa/#_2)有说明原因。
+[2018-05-24] 更新了mpvue-entry的版本=>1.1.7，支持热更新，不需要重启。
+
+缺陷：每新增一个页面都需要重新npm run dev，[官方文档](http://mpvue.com/qa/#_2)有说明原因。【在2018-05-24通过更新mpvue-entry的版本解决了此缺陷】
 
 > 2. 自动注册store
 

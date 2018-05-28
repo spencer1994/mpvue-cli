@@ -20,7 +20,7 @@
 
 优点：根据[vuex官方推荐](https://vuex.vuejs.org/zh-cn/intro.html)，将background API封装到actions中，具体用法可在代码里查看。
 
-以下使关于第二点的说明：
+以下是关于第二点的说明：
 # 根据webpack的require.context及store的registerModule方法来自动注册store的modules
 
 >在src下增加store文件夹。具体目录如下
@@ -90,7 +90,7 @@ export default {
 
 > 在页面中使用如下
 
-在单独的页面store.js中增加了namespaced:true。需要根据文件名来区分state及commit，这样子不同的store中的方法重名也不需要担心出错了。下面的例子只是简单根据官方demo写了一下，具体使用可以加actions，使用vuex的mapState、mapActions辅助函数方便使用。
+在单独的页面store.js中增加了namespaced:true。需要根据文件名来区分state及commit，这样子不同的store中的方法重名也不需要担心出错了。具体使用可以加actions，使用vuex的mapState、mapActions辅助函数方便使用。
 
 ``` js
 import { mapState, mapActions } from 'vuex'

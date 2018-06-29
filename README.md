@@ -3,8 +3,8 @@
 ## 基本用法
 ``` bash
 $ npm install -g vue-cli
-$ vue init blackjack0v0/mpvue-cli  mpvuesimple
-$ cd  mpvuesimple
+$ vue init spencer1994/mpvue-cli mpvuesimple
+$ cd mpvuesimple
 $ npm install
 $ npm run dev
 ```
@@ -120,4 +120,8 @@ export default {
   }
 }
 ```
+
+# 坑
+
+1.[vue文件中不能缺少script标签](https://github.com/Meituan-Dianping/mpvue/issues/562)，否则会导致编译不了。
 

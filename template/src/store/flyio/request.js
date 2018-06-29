@@ -38,18 +38,21 @@ const handleRequest = (url = '', data = {}) => {
       if (data.length !== promises.length) return
       promises = [] // 所有请求完后清除promise数组
       clearTimeout(loadingTimer) // 当请求在xxxms内完成则直接清除loading计时器
-      tipConfig.isLoading && Config.loading.loadingHide() // 当promise全部加载完成则隐藏loading
+    }).catch(() => {
+      promises = [] // 请求异常完后清除promise数组
+      clearTimeout(loadingTimer) // 请求异常则直接清除loading计时器
     })
 
     return flyio.then(res => {
       // 成功返回
       if (res[Config.resSuccess.key] === Config.resSuccess.value) {
+        tipConfig.isLoading && Config.loading.loadingHide() // 当promise全部加载完成则隐藏loading
         return res
       } else {
-        errorFunction(tipConfig, res)
+        setTimeout(() => { errorFunction(_tipConfig, res) }, 0)
       }
     }).catch(err => {
-      errorFunction(tipConfig, err)
+      setTimeout(() => { errorFunction(_tipConfig, err) }, 0)
     })
   }
 }

@@ -1,5 +1,7 @@
 # mpvuesimple-quickstart
 
+感谢@blackjack0v0贡献的vue init的使用方式～
+
 ## 基本用法
 ``` bash
 $ npm install -g vue-cli

@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "wx99045b8ec324055d",
+	"appid": "wx3011a047f254103f",
 	"projectname": "nf-name",
 	"condition": {
 		"search": {

@@ -1,15 +1,3 @@
-# mpvuesimple-quickstart
-
-## 基本用法
-``` bash
-$ npm install -g vue-cli
-$ vue init blackjack0v0/mpvue-cli  mpvuesimple
-$ cd  mpvuesimple
-$ npm install
-$ npm run dev
-```
-
-
 # 根据官方的cli封装了一系列的开发基础。
 
 主要的开发便利包含如下：
@@ -120,4 +108,3 @@ export default {
   }
 }
 ```
-

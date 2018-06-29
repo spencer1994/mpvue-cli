@@ -1,5 +1,3 @@
-# mpvuesimple-quickstart
-
 感谢[@blackjack0v0](https://github.com/blackjack0v0)贡献的vue init的使用方式～
 
 ## 基本用法

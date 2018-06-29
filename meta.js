@@ -30,10 +30,6 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
-    "vuex": {
-      "type": "confirm",
-      "message": "Use Vuex?"
-    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
@@ -67,9 +63,7 @@ module.exports = {
   },
   "filters": {
     ".eslintrc.js": "lint",
-    ".eslintignore": "lint",
-    "src/pages/counter.vue": "vuex",
-    "src/store/*": "vuex"
+    ".eslintignore": "lint"
   },
   "completeMessage": "To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at http://mpvue.com"
 };

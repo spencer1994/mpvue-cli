@@ -49,10 +49,10 @@ const handleRequest = (url = '', data = {}) => {
         tipConfig.isLoading && Config.loading.loadingHide() // 当promise全部加载完成则隐藏loading
         return res
       } else {
-        setTimeout(() => { errorFunction(_tipConfig, res) }, 0)
+        setTimeout(() => { errorFunction(tipConfig, res) }, 0)
       }
     }).catch(err => {
-      setTimeout(() => { errorFunction(_tipConfig, err) }, 0)
+      setTimeout(() => { errorFunction(tipConfig, err) }, 0)
     })
   }
 }

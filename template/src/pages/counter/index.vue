@@ -1,12 +1,12 @@
 <template>
   <div class="counter-warp">
-    <p>Vuex counter：\{{ count }}</p>
+    <p>Vuex counter：{{ count }}</p>
     <p>
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
     </p>
 
-    <a href="/pages/index/index" class="home">去往首页</a>
+    <a @click="goBack()" class="home">返回首页</a>
   </div>
 </template>
 
@@ -31,7 +31,12 @@ export default {
       'increment',
       'decrement',
       'getProvince'
-    ])
+    ]),
+    goBack () {
+      wx.navigateBack({
+        url: '/pages/index/index'
+      })
+    }
   }
 }
 

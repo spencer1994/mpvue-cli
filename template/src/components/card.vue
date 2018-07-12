@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="card">
-      \{{text}}
+      {{text}}
     </p>
   </div>
 </template>

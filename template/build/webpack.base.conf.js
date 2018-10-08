@@ -3,6 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var MpvuePlugin = require('webpack-mpvue-asset-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 const MpvueEntry = require('mpvue-entry')
 
 function resolve (dir) {
@@ -10,7 +11,10 @@ function resolve (dir) {
 }
 
 module.exports = {
-  entry: MpvueEntry.getEntry('./src/router/index.js'),
+  entry: MpvueEntry.getEntry({
+    pages: 'src/router/index.js',
+    app: 'src/app.json'
+  }),
   target: require('mpvue-webpack-target'),
   output: {
     path: config.build.assetsRoot,
@@ -24,9 +28,11 @@ module.exports = {
     alias: {
       'vue': 'mpvue',
       '@': resolve('src'),
-      'flyio': 'flyio/dist/npm/wx',
+      'flyio': 'flyio/dist/npm/wx'
     },
-    symlinks: false
+    symlinks: false,
+    aliasFields: ['mpvue', 'weapp', 'browser'],
+    mainFields: ['browser', 'module', 'main']
   },
   module: {
     rules: [
@@ -84,7 +90,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new MpvuePlugin(),
     new MpvueEntry(),
-    new MpvuePlugin()
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist/static'),
+        ignore: ['.*']
+      }
+    ])
   ]
 }

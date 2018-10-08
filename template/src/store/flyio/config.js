@@ -1,16 +1,8 @@
+const LOADING_LIMIT_TIME = 500
 export default {
   // 关于接口loading的配置
   loading: {
-    limitTime: 200, // 接口请求在xxxms内完成则不展示loading
-    loadingShow: () => {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-    },
-    loadingHide: () => {
-      wx.hideLoading()
-    }
+    limitTime: LOADING_LIMIT_TIME // 接口请求在xxxms内完成则不展示loading
   },
   // 接口请求的默认配置
   reqConfig: {
@@ -22,20 +14,22 @@ export default {
   flyConfig: {
     method: 'post'
   },
-  // 运行成功的判别标识  例如res.returnCode === '0'即成功
-  resSuccess: {
-    key: 'returnCode', // 与后台规定的表示响应成功的变量
-    value: '0' // 与后台规定的表示响应成功code
-  },
   // 异常情况
   resError: {
     // 异常默认提示的方法
     tipShow: (err) => {
-      wx.showToast({
-        title: (err && err.message) || '服务器升级中，请稍后重试。',
-        icon: 'none',
-        mask: true
-      })
+      setTimeout(() => {
+        let error = ''
+        if (err) {
+          error = err.errorDesc || err.response.data.errorDesc
+        }
+        error = error || '请求失败，请稍后重试'
+        wx.showToast({
+          title: error,
+          icon: 'none',
+          mask: true
+        })
+      }, LOADING_LIMIT_TIME + 50)
     }
   }
 }

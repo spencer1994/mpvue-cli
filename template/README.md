@@ -1,5 +1,7 @@
 感谢[@blackjack0v0](https://github.com/blackjack0v0)贡献的vue init的使用方式～
 
+> 本项目基于mpvue@1.0.13 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
+
 ## 基本用法
 ``` bash
 $ npm install -g vue-cli
@@ -53,7 +55,7 @@ $ npm run dev
 
 优点：去除了各个子页面的main.js，创建了router文件夹，使开发更贴近vue风格。
 
-[2018-05-24] 更新了mpvue-entry的版本=>1.1.7，支持热更新，不需要重启。
+[2018-05-24] 更新了mpvue-entry的版本=>1.5.0，支持热更新，不需要重启。
 
 缺陷：~~每新增一个页面都需要重新npm run dev，[官方文档](http://mpvue.com/qa/#_2)有说明原因。~~
 
@@ -69,6 +71,11 @@ $ npm run dev
 
 以下是关于第二点的说明：
 # 根据webpack的require.context及store的registerModule方法来自动注册store的modules
+
+> 4. 在package.json中增加了npm run build:dev、npm run build:test、npm run build:prod的命令
+
+优点：可以通过process.env.PROJECT_ENV => 'dev' || 'test' || 'prod' 来判断打的是开发环境、测试环境、还是生产环境的包，在webpack.prod.conf.js的line 39已增加配置，
+在打prod环境包的时候会把代码console去除，如需在生产包中显示console，需要手动改一下这个配置。
 
 >在src下增加store文件夹。具体目录如下
 ``` js
@@ -159,4 +166,19 @@ export default {
 # 坑
 
 1.[vue文件中不能缺少script标签](https://github.com/Meituan-Dianping/mpvue/issues/562)，否则会导致编译不了。
+注：在新版本的mpvue-loader已经不会出现这个问题。
+
+2.每个页面都要适配iphoneX，padding-bottom: 34px。可参考其他页面实现方式。注：底部无操作的话就不用将页面顶上去。
+
+3.slot插槽数据渲染有问题 https://github.com/Meituan-Dianping/mpvue/issues/427
+
+4.页面需要初始化data方式 Object.assign(this.$data, this.$options.data())，这个已在main.js中的全局混合中加入。如不需要则可以去除。
+
+5.获取页面参数，统一用：this.$root.$mp.appOptions.query. + '参数名' （当前页面为一级页面时）；this.$root.$mp.query. + '参数名' （当前页面不为一级页面时）
+
+6.小程序所有的点击事件尽量加上nf-get-form-id组件，该组件会遇到插槽数据渲染问题，具体参照“踩坑攻略”第3条
+
+7.需要使用'cover-view'标签在视频播放时保持显示，最外层一定要使用fixed定位
+
+8.使用'cover-view'标签内嵌入'button'按钮, 'button'内一定要再嵌入一个'cover-view'或者'cover-image'
 

@@ -1,6 +1,11 @@
 // iBoxPlugin
 import handleRequest from '@/store/flyio/request'
-import utils from './utils'
+
+const utilsContext = require.context('@/plugins/ibox/utils', true, /\.js$/)
+let utils = {}
+utilsContext.keys().forEach((modules) => {
+  utils[modules.replace(/(^\.\/)|(\.js$)/g, '')] = utilsContext(modules).default
+})
 
 export default {
   /**

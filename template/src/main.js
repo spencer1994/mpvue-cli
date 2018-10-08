@@ -7,21 +7,17 @@ Vue.config.productionTip = false
 import IboxPlugin from '@/plugins/ibox'
 Vue.use(IboxPlugin)
 
+Vue.mixin({
+  onUnload () {
+    if (this.$options.data) {
+      Object.assign(this.$data, this.$options.data()) // 重置组件数据状态
+    }
+  }
+})
+
 const app = new Vue({
   store,
   ...App
 })
 
 app.$mount()
-
-export default {
-  config: {
-    pages: [],
-    window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
-    }
-  }
-}

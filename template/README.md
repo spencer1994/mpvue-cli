@@ -69,13 +69,13 @@ $ npm run dev
 
 优点：根据[vuex官方推荐](https://vuex.vuejs.org/zh-cn/intro.html)，将background API封装到actions中，具体用法可在代码里查看。
 
-以下是关于第二点的说明：
-# 根据webpack的require.context及store的registerModule方法来自动注册store的modules
-
 > 4. 在package.json中增加了npm run build:dev、npm run build:test、npm run build:prod的命令
 
 优点：可以通过process.env.PROJECT_ENV => 'dev' || 'test' || 'prod' 来判断打的是开发环境、测试环境、还是生产环境的包，在webpack.prod.conf.js的line 39已增加配置，
 在打prod环境包的时候会把代码console去除，如需在生产包中显示console，需要手动改一下这个配置。
+
+以下是关于第二点的说明：
+# 根据webpack的require.context及store的registerModule方法来自动注册store的modules
 
 >在src下增加store文件夹。具体目录如下
 ``` js

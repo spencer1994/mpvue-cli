@@ -1,6 +1,6 @@
 感谢[@blackjack0v0](https://github.com/blackjack0v0)贡献的vue init的使用方式～
 
-> 本项目基于mpvue@1.0.13 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
+> 本项目基于mpvue@1.0.13 + mpvue-loader@1.1.4 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
 
 ## 基本用法
 ``` bash

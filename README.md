@@ -17,12 +17,12 @@ $ npm run dev
 |____config             webpack打包的配置文件
 |____node_modules       项目运行依赖的npm包
 |____src                项目代码文件夹
- |__components          自定义组件
+ |__components          自定义公用组件
  |__pages               页面组件
  |__plugins             vue插件
   |__ibox
    |__index.js          vue插件的注册，包含接口请求及工具utils
-   |__utils.js          工具类及共用方法注册js
+   |__utils             工具类及共用方法
  |__router              小程序的page.json的配置
   |__flyio          
    |__apiUrl            接口请求地址管理
@@ -33,7 +33,8 @@ $ npm run dev
   |__index.js           实现store对modules文件下的自动注册
  |__store               vuex状态管理
  |__App.vue             小程序的App页面
- |__main.js             小程序app.json配置
+ |__main.js             小程序插件配置
+ |__app.json            小程序app.json的配置
 |____static             静态资源文件夹
 |____.babelrc           es6语法转换配置文件
 |____.editorconfig      编辑器配置

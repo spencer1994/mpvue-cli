@@ -1,6 +1,6 @@
 感谢[@blackjack0v0](https://github.com/blackjack0v0)贡献的vue init的使用方式～
 
-> 本项目基于mpvue@1.0.13 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
+> 本项目基于mpvue@1.0.13 + mpvue-loader@1.1.4 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
 
 ## 基本用法
 ``` bash
@@ -174,11 +174,8 @@ export default {
 
 4.页面需要初始化data方式 Object.assign(this.$data, this.$options.data())，这个已在main.js中的全局混合中加入。如不需要则可以去除。
 
-5.获取页面参数，统一用：this.$root.$mp.appOptions.query. + '参数名' （当前页面为一级页面时）；this.$root.$mp.query. + '参数名' （当前页面不为一级页面时）
+5.小程序所有的点击事件尽量加上nf-get-form-id组件，该组件会遇到插槽数据渲染问题，具体参照“踩坑攻略”第3条
 
-6.小程序所有的点击事件尽量加上nf-get-form-id组件，该组件会遇到插槽数据渲染问题，具体参照“踩坑攻略”第3条
+6.需要使用'cover-view'标签在视频播放时保持显示，最外层一定要使用fixed定位
 
-7.需要使用'cover-view'标签在视频播放时保持显示，最外层一定要使用fixed定位
-
-8.使用'cover-view'标签内嵌入'button'按钮, 'button'内一定要再嵌入一个'cover-view'或者'cover-image'
-
+7.使用'cover-view'标签内嵌入'button'按钮, 'button'内一定要再嵌入一个'cover-view'或者'cover-image'

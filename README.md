@@ -2,6 +2,7 @@
 
 > 本项目基于mpvue@1.0.13 + mpvue-loader@1.1.4 + mpvue-entry@1.5.0 + flyio@0.6.1 构建。
 
+> mpvue1.0.13以上的版本暂有一些未解决的bug，mpvue1.0.13比较稳定，建议等官方更新了稳定版本再进行升级。
 ## 基本用法
 ``` bash
 $ npm install -g vue-cli

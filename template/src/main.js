@@ -4,8 +4,8 @@ import store from '@/store'
 
 Vue.config.productionTip = false
 
-import IboxPlugin from '@/plugins/ibox'
-Vue.use(IboxPlugin)
+import plugins from '@/plugins/index'
+Vue.use(plugins)
 
 Vue.mixin({
   onUnload () {

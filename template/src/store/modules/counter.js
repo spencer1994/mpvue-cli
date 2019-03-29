@@ -22,7 +22,7 @@ const actions = {
     commit('DECREMENT')
   },
   getProvince ({commit}, params = {}) {
-    return Vue.iBox.http('globalUrl.getProvince', params)({method: 'get'})
+    return Vue.Douya.http('globalUrl.getProvince', params)({method: 'get'})
   }
 }
 

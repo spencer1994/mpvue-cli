@@ -21,7 +21,6 @@ $ npm run dev
  |__components          自定义公用组件
  |__pages               页面组件
  |__plugins             vue插件
-  |__ibox
    |__index.js          vue插件的注册，包含接口请求及工具utils
    |__utils             工具类及共用方法
  |__router              小程序的page.json的配置
@@ -119,8 +118,16 @@ import store from '@/store'
 
 Vue.config.productionTip = false
 
-import IboxPlugin from '@/plugins/ibox'
-Vue.use(IboxPlugin)
+import plugins from '@/plugins/index'
+Vue.use(plugins)
+
+Vue.mixin({
+  onUnload () {
+    if (this.$options.data) {
+      Object.assign(this.$data, this.$options.data()) // 重置组件数据状态
+    }
+  }
+})
 
 const app = new Vue({
   store,
@@ -129,18 +136,6 @@ const app = new Vue({
 
 app.$mount()
 
-export default {
-  config: {
-    pages: [],
-    window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      backgroundColor: '#ffffff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
-    }
-  }
-}
 
 ```
 

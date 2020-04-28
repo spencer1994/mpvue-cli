@@ -9,8 +9,10 @@
 	},
 	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
-	"appid": "123",
+	"appid": "wx0ea5bc02c2cc06cc",
 	"projectname": "mpvue-cli",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -12,8 +12,8 @@ function resolve (dir) {
 
 module.exports = {
   entry: MpvueEntry.getEntry({
-    pages: 'src/router/index.js',
-    app: 'src/app.json'
+    config: './src/app.js',
+    template: './src/template.js'
   }),
   target: require('mpvue-webpack-target'),
   output: {

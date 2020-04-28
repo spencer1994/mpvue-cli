@@ -33,7 +33,8 @@ $ npm run dev
   |__index.js           实现store对modules文件下的自动注册
  |__store               vuex状态管理
  |__App.vue             小程序的App页面
- |__main.js             小程序插件配置
+ |__main.js             小程序插App入口的配置
+ |__template.js         小程序插页面入口的配置
  |__app.json            小程序app.json的配置
 |____static             静态资源文件夹
 |____.babelrc           es6语法转换配置文件
@@ -177,3 +178,8 @@ export default {
 
 7.使用'cover-view'标签内嵌入'button'按钮, 'button'内一定要再嵌入一个'cover-view'或者'cover-image'
 
+## release/1.0.0的更新
+
++ 增加了一个插件[mpvue-page-factory](https://www.npmjs.com/package/mpvue-page-factory)。具体改动可以看我项目里面fork的mpvue-page-factory。
+
++ 修改了mpvue1.0.13的源码，具体改动可以看我项目里面的mpvue-1.0.13。
